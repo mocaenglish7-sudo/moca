@@ -30,6 +30,7 @@
                 <a href="#services">교육 내용</a>
                 <a href="#features">진행 방식</a>
                 <a href="#projects">프로젝트</a>
+                <a href="#" id="open-instructor-modal" class="text-highlight" style="font-weight: 700;">강사 소개</a>
             </nav>
             <a href="#contact" class="btn-primary-outline small">강의 문의</a>
         </div>
@@ -279,6 +280,7 @@
                 <p><strong>이메일:</strong> mocaenglish7@gmail.com</p>
             </div>
             <div class="footer-links">
+                <a href="https://www.facebook.com/share/1BZnnETYRC/" target="_blank" rel="noopener noreferrer" aria-label="페이스북" title="페이스북"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
                 <a href="https://youtube.com/channel/UC4aarQU0CndbBwx2dNWAsAw?si=X4JAiGV9jf_YYuK2" target="_blank" rel="noopener noreferrer" aria-label="유튜브"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
                 <a href="https://www.instagram.com/digital.tutor_hji?igsh=YW1idDYyMGpnNzI3" target="_blank" rel="noopener noreferrer" aria-label="인스타그램"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
                 <a href="https://www.tiktok.com/@user3293509810057?_r=1&_t=ZS-96Qe7cvCNIi" target="_blank" rel="noopener noreferrer" aria-label="틱톡" title="틱톡"><i data-lucide="music"></i></a>
@@ -289,6 +291,158 @@
             <p>&copy; 2026 황정임강사의 실전형 디지털. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- 강사 소개 모달 -->
+    <div id="instructor-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="close-instructor-modal" aria-label="닫기"><i data-lucide="x"></i></button>
+            <div class="modal-header">
+                <img src="profile.jpg" alt="황정임 강사" class="modal-profile-img">
+                <div class="modal-title-group">
+                    <span class="modal-badge">디지털 튜터</span>
+                    <h2>황정임청은쌤</h2>
+                    <p class="modal-slogan">배우고, 만들고, 바로 써먹을 수 있게 돕습니다.</p>
+                    <a href="#" id="open-kdto-modal" class="kdto-verify-btn">
+                        <i data-lucide="check-circle-2"></i> KDTO 공식 인증 프로필 보기 ↗
+                    </a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3><i data-lucide="graduation-cap"></i> 교육 철학</h3>
+                    <p>어려운 전문 용어는 최대한 배제하고, 눈높이에 맞춘 쉬운 언어로 친절하게 안내합니다. 단 한 명도 포기하지 않고 끝까지 결과물을 만들어낼 수 있도록 실무 밀착형으로 교육합니다.</p>
+                </div>
+                <div class="modal-section">
+                    <h3><i data-lucide="award"></i> 주요 교육 내용</h3>
+                    <ul class="modal-list">
+                        <li>생성형 AI (챗GPT 등) 기초 및 실무 활용</li>
+                        <li>유튜브 초보 채널 개설부터 숏폼 기획/운영</li>
+                        <li>코딩 없는 노코드 웹 제작 (랜딩페이지)</li>
+                        <li>스마트폰 하나로 끝내는 릴스/쇼츠 제작</li>
+                    </ul>
+                </div>
+                <div class="modal-section">
+                    <h3><i data-lucide="briefcase"></i> 활동 내역</h3>
+                    <ul class="modal-list">
+                        <li>현) 소상공인 맞춤형 실전 디지털 교육 전문 강사</li>
+                        <li>자영업 대표님들의 바쁜 일정을 고려한 맞춤형 컨설팅 진행</li>
+                        <li>다양한 연령대와 업종 대상 디지털 장벽 허물기 현장 강의</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="tel:010-8997-4224" class="btn-primary" style="width: 100%; text-align: center; border-radius: 12px; padding: 14px; font-weight: 700;">전화로 빠른 상담하기</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- KDTO Modal -->
+    <div id="kdto-modal" class="modal-overlay">
+        <div class="modal-content kdto-modal-content">
+            <button class="modal-close kdto-close" id="close-kdto-modal" aria-label="닫기"><i data-lucide="x"></i></button>
+            
+            <div class="kdto-header">
+                <div class="kdto-logo"><span>K</span><span>D</span><span>T</span><span>O</span></div>
+                <h1 class="kdto-name">황정임</h1>
+            </div>
+            
+            <div class="kdto-body">
+                <div class="kdto-col-left">
+                    <img src="profile.jpg" alt="황정임 프로필" class="kdto-profile-img">
+                    
+                    <div class="kdto-section">
+                        <h3 class="kdto-title">강의 분야</h3>
+                        <ul>
+                            <li>바이브코딩으로 랜딩페이지(홈페이지제작)</li>
+                            <li>생성형 AI 활용 교육</li>
+                            <li>스마트폰 활용 교육 (기초·중급·고급)</li>
+                            <li>유튜브 콘텐츠 제작 및 크리에이터 교육</li>
+                            <li>SNS 활용 및 디지털 마케팅 교육</li>
+                            <li>카카오톡 채널, 당근마켓활용법</li>
+                            <li>앱시트 제작활용법</li>
+                            <li>구글워크스페이스활용</li>
+                            <li>디지털(기초, 생활, 심화)</li>
+                            <li>유튜브 강아지채널운영법, 음악채널, 명언채널 운영법</li>
+                        </ul>
+                    </div>
+
+                    <div class="kdto-section">
+                        <h3 class="kdto-title">수상내역</h3>
+                        <p class="kdto-subtitle">수상</p>
+                        <ul>
+                            <li>국회의원 표창 (지역사회 발전 및 봉사 공로)</li>
+                        </ul>
+                        <p class="kdto-subtitle">사회활동</p>
+                        <ul>
+                            <li>국민의힘 포항 남구·울릉군 당원협의회 디지털 정당위원</li>
+                            <li>제22대 국회의원 선거 선거대책위원회 SNS 단장</li>
+                            <li>포항시장후보박용선 선거대책위원회 SNS서포터즈</li>
+                        </ul>
+                        <p class="kdto-subtitle">봉사활동</p>
+                        <ul>
+                            <li>포항 열린학교 성인 문해교육 한글 지도 봉사</li>
+                            <li>포항 큰동해시장 상인 스마트폰 활용 교육 봉사</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="kdto-section">
+                        <h3 class="kdto-title">연락처</h3>
+                        <ul>
+                            <li>이메일: mocaenglish7@gmail.com</li>
+                            <li>전화: 010-8997-4224</li>
+                            <li>주소: 경북 포항시 엘마켓21마케팅대행사 매니저</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="kdto-col-right">
+                    <div class="kdto-section">
+                        <h3 class="kdto-title">주요 경력</h3>
+                        <ul>
+                            <li>디지털배움터(경북)포항,경주거점센터강사 (21.1~25.11)</li>
+                            <li>한국과학창의재단 디지털튜터 강사(25.12.17~)</li>
+                            <li>경상북도 사회복지협의회 디지털 전문강사(25.03~)</li>
+                            <li>청하창포종합복지관 디지털 교육(26.04~05)</li>
+                            <li>카카오임팩트 포항구룡포시장 디지털전환참여(23.10.01.~24.11.30)</li>
+                            <li>포항 큰동해시장 상인 스마트폰 활용 교육 강사 21.9.01.~22.11.30</li>
+                            <li>홈플러스 문화센터 디지털 교육 강사(21.9~22.11)</li>
+                        </ul>
+                    </div>
+
+                    <div class="kdto-section">
+                        <h3 class="kdto-title">자격증</h3>
+                        <ul>
+                            <li>AI활용교육지도사 1급, 2급, 3급</li>
+                            <li>인공지능(AI) 전문가 1급</li>
+                            <li>디지털리터러시 지도사 1급</li>
+                            <li>유튜브 크리에이터 전문가 1급</li>
+                            <li>디지털튜터 1급</li>
+                            <li>모바일 디지털튜터 2급</li>
+                            <li>카카오톡 채널</li>
+                            <li>카카오모먼트 자격증</li>
+                            <li>ITQ 한글 / 파워포인트 / 엑셀</li>
+                        </ul>
+                    </div>
+
+                    <div class="kdto-section">
+                        <h3 class="kdto-title">수료증</h3>
+                        <ul>
+                            <li>강사아카데미(KDTO,한국디지털튜터협회)</li>
+                            <li>디지털튜터마스터(DTM)</li>
+                            <li>디지털튜터 교육과정 이수(70시간): 한국과학창의재단</li>
+                            <li>사회서비스종사자 디지털전문강사 과정</li>
+                            <li>AI ChatGPT 활용 교육 수료</li>
+                            <li>캡컷 영상편집 과정 수료</li>
+                            <li>인스타그램 마케팅 과정 수료</li>
+                            <li>유튜브 강사 양성 과정 수료</li>
+                            <li>스마트폰 활용 심화 과정 「스마트폰 씹어먹기」 4주 과정</li>
+                            <li>생성형 AI 활용 업무 효율 과정 「AI 시대 일잘러의 선택」</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
