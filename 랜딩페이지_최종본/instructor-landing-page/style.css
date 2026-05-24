@@ -219,6 +219,10 @@ img {
     text-decoration: underline;
 }
 
+.mobile-only {
+    display: block; /* 모바일 우선이므로 기본은 block 또는 inline */
+}
+
 @media (max-width: 768px) {
     .header .container {
         padding: 0 1rem;
@@ -816,7 +820,10 @@ img {
     .nav-links {
         display: flex;
     }
-    
+    .mobile-only {
+        display: none;
+    }
+
     .hero-container {
         flex-direction: row;
         justify-content: space-between;

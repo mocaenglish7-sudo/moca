@@ -25,7 +25,7 @@
     
     /* Layout */
     --container-width: 1100px;
-    --section-padding: 5rem 1.5rem;
+    --section-padding: 7rem 1.5rem;
     --radius: 12px;
     --transition: all 0.3s ease;
 }
@@ -183,8 +183,8 @@ img {
 }
 
 .logo {
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 800;
     color: var(--brand);
 }
 
@@ -194,12 +194,52 @@ img {
 }
 
 .nav-links a {
-    font-weight: 500;
-    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--primary);
 }
 
 .nav-links a:hover {
     color: var(--brand);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-instructor-link {
+    font-weight: 700;
+    color: var(--brand);
+    font-size: 1.05rem;
+}
+
+.nav-instructor-link:hover {
+    text-decoration: underline;
+}
+
+.mobile-only {
+    display: block; /* 모바일 우선이므로 기본은 block 또는 inline */
+}
+
+@media (max-width: 768px) {
+    .header .container {
+        padding: 0 1rem;
+    }
+    .logo {
+        font-size: 1.1rem;
+    }
+    .header-actions {
+        gap: 0.6rem;
+    }
+    .nav-instructor-link {
+        font-size: 0.9rem;
+    }
+    .btn-primary-outline.small {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
 }
 
 /* Animations */
@@ -245,20 +285,22 @@ img {
 
 .badge {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.25rem;
     background-color: var(--bg-soft);
     color: var(--brand);
     border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
     border: 1px solid var(--border);
 }
 
 .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
+    font-weight: 800;
     margin-bottom: 1.5rem;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    line-height: 1.35;
 }
 
 .text-highlight {
@@ -266,9 +308,11 @@ img {
 }
 
 .hero-desc {
-    font-size: 1.125rem;
-    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--primary);
     margin-bottom: 2.5rem;
+    line-height: 1.7;
 }
 
 .hero-buttons {
@@ -714,7 +758,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-muted);
+    color: var(--primary); /* 진하게 변경 */
     box-shadow: var(--shadow-sm);
 }
 
@@ -776,7 +820,10 @@ img {
     .nav-links {
         display: flex;
     }
-    
+    .mobile-only {
+        display: none;
+    }
+
     .hero-container {
         flex-direction: row;
         justify-content: space-between;
@@ -818,3 +865,357 @@ img {
         padding: 2rem 1.5rem;
     }
 }
+
+/* Instructor Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: white;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    border-radius: 24px;
+    padding: 2.5rem;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close:hover {
+    background-color: var(--bg-soft);
+    color: var(--brand);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--brand-light);
+}
+
+.modal-badge {
+    background-color: var(--brand-light);
+    color: var(--brand);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.modal-title-group h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary-dark);
+}
+
+.modal-slogan {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.kdto-verify-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.75rem;
+    background-color: #E0E7FF;
+    color: #4338CA;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.kdto-verify-btn:hover {
+    background-color: #C7D2FE;
+    color: #312E81;
+}
+
+.kdto-verify-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.modal-section {
+    margin-bottom: 1.75rem;
+}
+
+.modal-section h3 {
+    font-size: 1.125rem;
+    color: var(--primary-dark);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-section h3 svg {
+    width: 20px;
+    height: 20px;
+    color: var(--brand);
+}
+
+.modal-section p {
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.modal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.modal-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.modal-list li::before {
+    content: "•";
+    color: var(--brand);
+    font-weight: bold;
+    position: absolute;
+    left: 0.5rem;
+}
+
+.modal-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .modal-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .modal-content {
+        padding: 1.5rem;
+    }
+}
+
+/* KDTO Modal Styles */
+.kdto-modal-content {
+    padding: 0;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 12px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.kdto-header {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 2rem 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 3rem;
+}
+
+.kdto-logo {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.kdto-logo span {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 0.1rem 0.4rem;
+    font-weight: 900;
+    font-size: 1.25rem;
+}
+
+.kdto-name {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 8px;
+}
+
+.kdto-body {
+    display: flex;
+    padding: 2.5rem;
+    gap: 2.5rem;
+}
+
+.kdto-col-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.kdto-col-right {
+    flex: 1.4;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.kdto-profile-img {
+    width: 100%;
+    max-width: 250px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border: 5px solid #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: -4rem auto 0;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+.kdto-section {
+    margin-bottom: 0.5rem;
+}
+
+.kdto-title {
+    background-color: #3b148c; /* Dark Purple matching screenshot */
+    color: white;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.kdto-subtitle {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #222;
+    margin-top: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.kdto-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kdto-section ul li {
+    position: relative;
+    padding-left: 0.8rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: #111;
+    margin-bottom: 0.3rem;
+    word-break: keep-all;
+}
+
+.kdto-section ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #3b148c;
+    font-weight: bold;
+}
+
+.kdto-close {
+    z-index: 10;
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    top: 1rem;
+    right: 1rem;
+}
+.kdto-close:hover {
+    background-color: rgba(255,255,255,0.4);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .kdto-body {
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    .kdto-header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 2rem 1.5rem;
+    }
+    .kdto-name {
+        font-size: 2.2rem;
+    }
+    .kdto-profile-img {
+        margin: -3rem auto 0;
+    }
+}
+
+/* Section Alternate Backgrounds */
+.target { background-color: var(--bg-alt); }
+.services { background-color: var(--bg-main); }
+.features { background-color: var(--bg-alt); }
+/* trust 섹션은 고유의 어두운 배경(var(--brand))을 사용하므로 덮어쓰지 않음 */
+.projects { background-color: var(--bg-alt); }

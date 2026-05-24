@@ -76,15 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Instructor Modal Logic
 const modal = document.getElementById('instructor-modal');
-const openBtn = document.getElementById('open-instructor-modal');
+const openBtns = document.querySelectorAll('.open-instructor-modal');
 const closeBtn = document.getElementById('close-instructor-modal');
 
-if (modal && openBtn && closeBtn) {
+if (modal && openBtns.length > 0 && closeBtn) {
     // Open modal
-    openBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal.classList.add('active');
-        document.body.classList.add('modal-open');
+    openBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        });
     });
 
     // Close modal via close button

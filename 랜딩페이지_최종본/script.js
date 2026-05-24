@@ -73,3 +73,74 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Instructor Modal Logic
+const modal = document.getElementById('instructor-modal');
+const openBtns = document.querySelectorAll('.open-instructor-modal');
+const closeBtn = document.getElementById('close-instructor-modal');
+
+if (modal && openBtns.length > 0 && closeBtn) {
+    // Open modal
+    openBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+        });
+    });
+
+    // Close modal via close button
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    });
+
+    // Close modal by clicking outside content
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+    });
+
+    // Close modal via Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+        }
+    });
+}
+
+// KDTO Modal Logic
+const kdtoModal = document.getElementById('kdto-modal');
+const openKdtoBtn = document.getElementById('open-kdto-modal');
+const closeKdtoBtn = document.getElementById('close-kdto-modal');
+
+if (kdtoModal && openKdtoBtn && closeKdtoBtn) {
+    // Open modal
+    openKdtoBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        kdtoModal.classList.add('active');
+        document.body.classList.add('modal-open');
+    });
+
+    // Close modal via close button
+    closeKdtoBtn.addEventListener('click', () => {
+        kdtoModal.classList.remove('active');
+    });
+
+    // Close modal by clicking outside content
+    kdtoModal.addEventListener('click', (e) => {
+        if (e.target === kdtoModal) {
+            kdtoModal.classList.remove('active');
+        }
+    });
+
+    // Close modal via Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && kdtoModal.classList.contains('active')) {
+            kdtoModal.classList.remove('active');
+        }
+    });
+}
